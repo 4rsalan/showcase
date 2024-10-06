@@ -1,9 +1,14 @@
 ---
 date: '5'
-title: 'Fullstack Engineer'
+title: 'Frontend Engineer'
 company: 'Re/Max'
 location: 'Toronto'
 url: 'https://www.remax.ca/'
+tech:
+  - React
+  - Redux
+  - Typescript
+  - NextJS
 ---
 
 - Developed and styled interactive web applications for Apple Music using Ember and SCSS

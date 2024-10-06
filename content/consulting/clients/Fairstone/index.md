@@ -4,6 +4,15 @@ title: 'Fullstack Engineer'
 company: 'Fairstone'
 location: 'Montreal (Remote)'
 url: 'https://www.fairstone.ca/'
+tech:
+  - React
+  - Redux
+  - Typescript
+  - AWS
+  - Lambda
+  - SQS
+  - SNS
+  - DynamoDB
 ---
 
 - Developed and styled interactive web applications for Apple Music using Ember and SCSS

@@ -4,7 +4,7 @@ title: 'Software Engineer'
 company: 'Slalom Build'
 location: 'Toronto'
 range: 'Sept 2020 - Present'
-url: 'https://www.apple.com/music/'
+url: 'https://www.slalombuild.com/'
 ---
 
 - Developed and styled interactive web applications for Apple Music using Ember and SCSS

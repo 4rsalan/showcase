@@ -12,7 +12,15 @@ const StyledJobsSection = styled.section`
 
   .more-button {
     ${({ theme }) => theme.mixins.button};
-    margin: 80px auto 0;
+    margin: auto 0;
+    float: right;
+  }
+
+  .badge {
+    border: 1px solid var(--green);
+    border-radius: 25px;
+    padding: 5px;
+    margin-bottom: 2px;
   }
 
   .inner {
@@ -139,6 +147,38 @@ const StyledTabPanels = styled.div`
   @media (max-width: 600px) {
     margin-left: 0;
   }
+
+  .project-tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
+    margin-top: 2px;
+    padding: 0;
+    list-style: none;
+
+    li {
+      margin: 0 10px 5px 0;
+      color: var(--light-slate);
+      font-family: var(--font-mono);
+      font-size: var(--fz-xs);
+      white-space: nowrap;
+      &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      margin: 10px 0;
+
+      li {
+        margin: 0 10px 5px 0;
+        color: var(--lightest-slate);
+      }
+    }
+  }
 `;
 
 const StyledTabPanel = styled.div`
@@ -200,6 +240,7 @@ const Jobs = () => {
               company
               location
               url
+              tech
             }
             html
           }
@@ -233,10 +274,12 @@ const Jobs = () => {
   const slalomData = data.slalom.edges;
 
   const [activeTabId, setActiveTabId] = useState(0);
+  const [showSlalomClients, setShowSlalomClients] = useState(false);
   const [tabFocus, setTabFocus] = useState(null);
   const tabs = useRef([]);
   const revealContainer = useRef(null);
   const prefersReducedMotion = usePrefersReducedMotion();
+  const nodeRef = useRef(null);
 
   useEffect(() => {
     if (prefersReducedMotion) {
@@ -303,6 +346,11 @@ const Jobs = () => {
                     <a href={url} className="inline-link">
                       {company}
                     </a>
+                    <button
+                      className="more-button"
+                      onClick={() => setShowSlalomClients(!showSlalomClients)}>
+                      {showSlalomClients ? 'Hide' : 'View'} Clients
+                    </button>
                   </span>
                 </h3>
 
@@ -313,63 +361,86 @@ const Jobs = () => {
             );
           })}
       </StyledTabPanels>
-      <div className="inner">
-        <StyledTabList role="tablist" aria-label="Job tabs" onKeyDown={e => onKeyDown(e)}>
-          {consultingJobs &&
-            consultingJobs.map(({ node }, i) => {
-              const { company } = node.frontmatter;
-              return (
-                <StyledTabButton
-                  key={i}
-                  isActive={activeTabId === i}
-                  onClick={() => setActiveTabId(i)}
-                  ref={el => (tabs.current[i] = el)}
-                  id={`tab-${i}`}
-                  role="tab"
-                  tabIndex={activeTabId === i ? '0' : '-1'}
-                  aria-selected={activeTabId === i ? true : false}
-                  aria-controls={`panel-${i}`}>
-                  <span>{company}</span>
-                </StyledTabButton>
-              );
-            })}
-          <StyledHighlight activeTabId={activeTabId} />
-        </StyledTabList>
+      {showSlalomClients && (
+        <div className="inner">
+          <CSSTransition
+            in={showSlalomClients}
+            timeout={250}
+            unmountOnExit
+            classNames="fade"
+            nodeRef={nodeRef}>
+            <>
+              <StyledTabList
+                key="tablist"
+                role="tablist"
+                aria-label="Job tabs"
+                onKeyDown={e => onKeyDown(e)}
+                ref={nodeRef}>
+                {consultingJobs &&
+                  consultingJobs.map(({ node }, i) => {
+                    const { company } = node.frontmatter;
+                    return (
+                      <StyledTabButton
+                        key={i}
+                        isActive={activeTabId === i}
+                        onClick={() => setActiveTabId(i)}
+                        ref={el => (tabs.current[i] = el)}
+                        id={`tab-${i}`}
+                        role="tab"
+                        tabIndex={activeTabId === i ? '0' : '-1'}
+                        aria-selected={activeTabId === i ? true : false}
+                        aria-controls={`panel-${i}`}>
+                        <span>{company}</span>
+                      </StyledTabButton>
+                    );
+                  })}
+                <StyledHighlight activeTabId={activeTabId} />
+              </StyledTabList>
 
-        <StyledTabPanels>
-          {consultingJobs &&
-            consultingJobs.map(({ node }, i) => {
-              const { frontmatter, html } = node;
-              const { title, url, company, range } = frontmatter;
+              <StyledTabPanels>
+                {consultingJobs &&
+                  consultingJobs.map(({ node }, i) => {
+                    const { frontmatter, html } = node;
+                    const { title, url, company, tech } = frontmatter;
 
-              return (
-                <CSSTransition key={i} in={activeTabId === i} timeout={250} classNames="fade">
-                  <StyledTabPanel
-                    id={`panel-${i}`}
-                    role="tabpanel"
-                    tabIndex={activeTabId === i ? '0' : '-1'}
-                    aria-labelledby={`tab-${i}`}
-                    aria-hidden={activeTabId !== i}
-                    hidden={activeTabId !== i}>
-                    <h3>
-                      <span>{title}</span>
-                      <span className="company">
-                        &nbsp;@&nbsp;
-                        <a href={url} className="inline-link">
-                          {company}
-                        </a>
-                      </span>
-                    </h3>
-
-                    <p className="range">{range}</p>
-
-                    <div dangerouslySetInnerHTML={{ __html: html }} />
-                  </StyledTabPanel>
-                </CSSTransition>
-              );
-            })}
-        </StyledTabPanels>
-      </div>
+                    return (
+                      <CSSTransition key={i} in={activeTabId === i} timeout={250} classNames="fade">
+                        <StyledTabPanel
+                          id={`panel-${i}`}
+                          role="tabpanel"
+                          tabIndex={activeTabId === i ? '0' : '-1'}
+                          aria-labelledby={`tab-${i}`}
+                          aria-hidden={activeTabId !== i}
+                          hidden={activeTabId !== i}>
+                          <h3>
+                            <span>{title}</span>
+                            <span className="company">
+                              &nbsp;@&nbsp;
+                              <a href={url} className="inline-link">
+                                {company}
+                              </a>
+                            </span>
+                          </h3>
+                          <div dangerouslySetInnerHTML={{ __html: html }} />
+                          <p>Technologies</p>
+                          {tech.length && (
+                            <ul className="project-tech-list">
+                              {tech.map((tech, i) => (
+                                <li className="badge" key={i}>
+                                  {tech}
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+                        </StyledTabPanel>
+                      </CSSTransition>
+                    );
+                  })}
+              </StyledTabPanels>
+            </>
+          </CSSTransition>
+        </div>
+      )}
       <StyledTabPanels>
         {jobsData &&
           jobsData.map(({ node }, i) => {

@@ -5,6 +5,10 @@ company: 'George Brown College'
 location: 'Toronto'
 range: 'April 2019 - April 2020'
 url: 'https://www.georgebrown.ca/'
+tech:
+  - MySQL
+  - VBA
+  - MS Access
 ---
 
 - Developed and styled interactive web applications for Apple Music using Ember and SCSS

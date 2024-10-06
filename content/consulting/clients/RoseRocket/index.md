@@ -4,6 +4,10 @@ title: 'Backend Engineer'
 company: 'Rose Rocket'
 location: 'Toronto'
 url: 'https://www.roserocket.com/'
+tech:
+  - Node.js
+  - NestJS
+  - Typescript
 ---
 
 - Developed and styled interactive web applications for Apple Music using Ember and SCSS

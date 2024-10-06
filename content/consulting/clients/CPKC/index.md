@@ -4,6 +4,12 @@ title: 'Backend Engineer'
 company: 'CPKC Rail'
 location: 'Edmonton (Remote)'
 url: 'https://www.cpkcr.com/en'
+tech:
+  - Node.js
+  - AWS
+  - Lambda
+  - CDK
+  - SQS
 ---
 
 - Developed and styled interactive web applications for Apple Music using Ember and SCSS

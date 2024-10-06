@@ -4,6 +4,12 @@ title: 'Fullstack Engineer'
 company: 'AT&T'
 location: 'Houston (Remote)'
 url: 'https://www.att.com/'
+tech:
+  - Angular
+  - Typescript
+  - Java
+  - Springboot
+  - SQL
 ---
 
 - Developed and styled interactive web applications for Apple Music using Ember and SCSS
