@@ -1,6 +1,6 @@
 ---
 date: '2'
-title: 'How to train your Dragon Boat'
+title: 'How To Train Your Dragon Boat'
 cover: './dragonboat.png'
 github: 'https://github.com/4rsalan/Capstone'
 external: 'https://github.com/4rsalan/Capstone'

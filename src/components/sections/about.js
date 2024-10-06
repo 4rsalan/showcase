@@ -17,6 +17,18 @@ const StyledAboutSection = styled.section`
       display: block;
     }
   }
+
+  h1 {
+    margin: 0 0 30px 4px;
+    color: var(--green);
+    font-family: var(--font-mono);
+    font-size: clamp(var(--fz-sm), 5vw, var(--fz-md));
+    font-weight: 400;
+
+    @media (max-width: 480px) {
+      margin: 0 0 20px 2px;
+    }
+  }
 `;
 const StyledText = styled.div`
   ul.skills-list {
@@ -129,16 +141,16 @@ const About = () => {
 
   return (
     <StyledAboutSection id="about" ref={revealContainer}>
-      <h2 className="numbered-heading">About Me</h2>
-
+      <h1>Hi, my name is</h1>
+      <h2 className="big-heading">Arsalan Farooqui.</h2>
       <div className="inner">
         <StyledText>
           <div>
             <p>
-              Hey! My name is Arsalan and I enjoy creating things that live on the internet. My
-              interest in web development started back in 2012 when I decided to try editing custom
-              Tumblr themes — turns out hacking together a custom reblog button taught me a lot
-              about HTML &amp; CSS!
+              I’m a Toronto based full-stack engineer with a focus on backend development and a
+              passion for design. I've worked in many sectors including, finance, e-commerce, and
+              telecoms, specializing in cloud technologies and large-scale distributed systems to
+              deliver impactful solutions.
             </p>
 
             <p>

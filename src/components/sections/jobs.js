@@ -10,6 +10,11 @@ import { usePrefersReducedMotion } from '@hooks';
 const StyledJobsSection = styled.section`
   max-width: 700px;
 
+  .more-button {
+    ${({ theme }) => theme.mixins.button};
+    margin: 80px auto 0;
+  }
+
   .inner {
     display: flex;
 
@@ -184,10 +189,48 @@ const Jobs = () => {
           }
         }
       }
+      consultingJobs: allMarkdownRemark(
+        filter: { fileAbsolutePath: { regex: "/content/consulting/clients/" } }
+        sort: { fields: [frontmatter___date], order: DESC }
+      ) {
+        edges {
+          node {
+            frontmatter {
+              title
+              company
+              location
+              url
+            }
+            html
+          }
+        }
+      }
+      slalom: allMarkdownRemark(
+        filter: {
+          fileAbsolutePath: { regex: "/content/consulting/" }
+          frontmatter: { company: { eq: "Slalom Build" } }
+        }
+        sort: { fields: [frontmatter___date], order: DESC }
+      ) {
+        edges {
+          node {
+            frontmatter {
+              title
+              company
+              location
+              url
+              range
+            }
+            html
+          }
+        }
+      }
     }
   `);
 
   const jobsData = data.jobs.edges;
+  const consultingJobs = data.consultingJobs.edges;
+  const slalomData = data.slalom.edges;
 
   const [activeTabId, setActiveTabId] = useState(0);
   const [tabFocus, setTabFocus] = useState(null);
@@ -245,11 +288,35 @@ const Jobs = () => {
   return (
     <StyledJobsSection id="jobs" ref={revealContainer}>
       <h2 className="numbered-heading">Where I’ve Worked</h2>
+      <StyledTabPanels>
+        {slalomData &&
+          slalomData.map(({ node }, i) => {
+            const { frontmatter, html } = node;
+            const { title, url, company, range } = frontmatter;
 
+            return (
+              <StyledTabPanel key={i} id={`panel-${i}`} role="tabpanel">
+                <h3>
+                  <span>{title}</span>
+                  <span className="company">
+                    &nbsp;@&nbsp;
+                    <a href={url} className="inline-link">
+                      {company}
+                    </a>
+                  </span>
+                </h3>
+
+                <p className="range">{range}</p>
+
+                <div dangerouslySetInnerHTML={{ __html: html }} />
+              </StyledTabPanel>
+            );
+          })}
+      </StyledTabPanels>
       <div className="inner">
         <StyledTabList role="tablist" aria-label="Job tabs" onKeyDown={e => onKeyDown(e)}>
-          {jobsData &&
-            jobsData.map(({ node }, i) => {
+          {consultingJobs &&
+            consultingJobs.map(({ node }, i) => {
               const { company } = node.frontmatter;
               return (
                 <StyledTabButton
@@ -270,8 +337,8 @@ const Jobs = () => {
         </StyledTabList>
 
         <StyledTabPanels>
-          {jobsData &&
-            jobsData.map(({ node }, i) => {
+          {consultingJobs &&
+            consultingJobs.map(({ node }, i) => {
               const { frontmatter, html } = node;
               const { title, url, company, range } = frontmatter;
 
@@ -303,6 +370,31 @@ const Jobs = () => {
             })}
         </StyledTabPanels>
       </div>
+      <StyledTabPanels>
+        {jobsData &&
+          jobsData.map(({ node }, i) => {
+            const { frontmatter, html } = node;
+            const { title, url, company, range } = frontmatter;
+
+            return (
+              <StyledTabPanel key={i} id={`panel-${i}`} role="tabpanel">
+                <h3>
+                  <span>{title}</span>
+                  <span className="company">
+                    &nbsp;@&nbsp;
+                    <a href={url} className="inline-link">
+                      {company}
+                    </a>
+                  </span>
+                </h3>
+
+                <p className="range">{range}</p>
+
+                <div dangerouslySetInnerHTML={{ __html: html }} />
+              </StyledTabPanel>
+            );
+          })}
+      </StyledTabPanels>
     </StyledJobsSection>
   );
 };
