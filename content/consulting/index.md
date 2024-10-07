@@ -5,6 +5,14 @@ company: 'Slalom Build'
 location: 'Toronto'
 range: 'Sept 2020 - Present'
 url: 'https://www.slalombuild.com/'
+tech:
+  - Javascript/Typescript
+  - React
+  - Java
+  - AWS
+  - Angular
+  - NextJS
+  - NestJS
 ---
 
 - Developed and styled interactive web applications for Apple Music using Ember and SCSS

@@ -18,7 +18,7 @@ const StyledJobsSection = styled.section`
 
   .badge {
     border: 1px solid var(--green);
-    border-radius: 25px;
+    border-radius: 15px;
     padding: 5px;
     margin-bottom: 2px;
   }
@@ -224,6 +224,7 @@ const Jobs = () => {
               location
               range
               url
+              tech
             }
             html
           }
@@ -261,6 +262,7 @@ const Jobs = () => {
               location
               url
               range
+              tech
             }
             html
           }
@@ -335,7 +337,7 @@ const Jobs = () => {
         {slalomData &&
           slalomData.map(({ node }, i) => {
             const { frontmatter, html } = node;
-            const { title, url, company, range } = frontmatter;
+            const { title, url, company, range, tech } = frontmatter;
 
             return (
               <StyledTabPanel key={i} id={`panel-${i}`} role="tabpanel">
@@ -357,6 +359,15 @@ const Jobs = () => {
                 <p className="range">{range}</p>
 
                 <div dangerouslySetInnerHTML={{ __html: html }} />
+                {tech.length && (
+                  <ul className="project-tech-list">
+                    {tech.map((tech, i) => (
+                      <li className="badge" key={i}>
+                        {tech}
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </StyledTabPanel>
             );
           })}
@@ -445,7 +456,7 @@ const Jobs = () => {
         {jobsData &&
           jobsData.map(({ node }, i) => {
             const { frontmatter, html } = node;
-            const { title, url, company, range } = frontmatter;
+            const { title, url, company, range, tech } = frontmatter;
 
             return (
               <StyledTabPanel key={i} id={`panel-${i}`} role="tabpanel">
@@ -462,6 +473,15 @@ const Jobs = () => {
                 <p className="range">{range}</p>
 
                 <div dangerouslySetInnerHTML={{ __html: html }} />
+                {tech.length && (
+                  <ul className="project-tech-list">
+                    {tech.map((tech, i) => (
+                      <li className="badge" key={i}>
+                        {tech}
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </StyledTabPanel>
             );
           })}

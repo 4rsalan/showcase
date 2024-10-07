@@ -10,7 +10,7 @@ tech:
   - Typescript
 ---
 
-- Developed and styled interactive web applications for Apple Music using Ember and SCSS
-- Built and shipped the Apple Music Extension for Facebook Messenger leveraging third-party and internal API integrations
-- Architected and implemented the user interface of Apple Music's embeddable web player widget for in-browser user authorization and full song playback
-- Contributed extensively to the creation of MusicKit JS, a public-facing JavaScript SDK for embedding Apple Music players into web applications
+- As primary developer, built a highly performant tariff calculation engine significantly improving calculation speed from legacy engine
+- Engineered low-level design for the engine, focusing on data modeling, detailed service interactions, and tariff algorithm optimization
+- Collaborated with product team on high-level design to decompose calculation services, enhancing code reusability and maintainability
+- Implemented data validation in middleware using NestJS to optimize and limit redundancy in automated testing suite

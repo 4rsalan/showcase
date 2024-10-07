@@ -135,7 +135,16 @@ const About = () => {
     sr.reveal(revealContainer.current, srConfig());
   }, []);
 
-  const skills = ['JavaScript (ES6+)', 'TypeScript', 'React', 'Node.js', 'Java', 'Springboot'];
+  const skills = [
+    'JavaScript (ES6+)',
+    'AWS',
+    'React',
+    'Node.js',
+    'Java',
+    'Springboot',
+    'NextJS',
+    'NestJS',
+  ];
 
   return (
     <StyledAboutSection id="about" ref={revealContainer}>
@@ -145,24 +154,29 @@ const About = () => {
         <StyledText>
           <div>
             <p>
-              I’m a Toronto based full-stack engineer with a focus on backend development and a
+              I’m a Toronto based Full-Stack Engineer with a focus on backend development and a
               passion for design. I've worked in many sectors including, finance, e-commerce, and
               telecoms, specializing in cloud technologies and large-scale distributed systems to
               deliver impactful solutions.
             </p>
-
             <p>
-              Fast-forward to today, and I’ve had the privilege of working at{' '}
-              <a href="https://us.mullenlowe.com/">an advertising agency</a>,{' '}
-              <a href="https://starry.com/">a start-up</a>,{' '}
-              <a href="https://www.apple.com/">a huge corporation</a>, and{' '}
-              <a href="https://scout.camd.northeastern.edu/">a student-led design studio</a>. My
-              main focus these days is building accessible, inclusive products and digital
-              experiences at <a href="https://upstatement.com/">Upstatement</a> for a variety of
-              clients.
+              My journey as a developer started in an unorthodox way. I was a kid playing Pokemon
+              and I wanted to make my own ROM hack. I downloaded a map editor, mapped my
+              neighbourhood and made my own cutscenes. It sucked.
             </p>
 
-            <p>Outside work you can catch me playing soccer,</p>
+            <p>
+              But it sparked something in me. When it came time to go to College — programming just
+              felt right. Years later, that drive to create stays strong and I try to bring that
+              energy into honing my craft to be the{' '}
+              <a
+                target="_blank"
+                href="https://www.youtube.com/watch?v=LpUr0KrSjHE"
+                rel="noreferrer">
+                <s> very best, like no one ever was</s>
+              </a>{' '}
+              best Engineer I can!
+            </p>
 
             <p>Here are a few technologies I’ve been working with recently:</p>
           </div>

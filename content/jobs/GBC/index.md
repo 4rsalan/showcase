@@ -11,7 +11,6 @@ tech:
   - MS Access
 ---
 
-- Developed and styled interactive web applications for Apple Music using Ember and SCSS
-- Built and shipped the Apple Music Extension for Facebook Messenger leveraging third-party and internal API integrations
-- Architected and implemented the user interface of Apple Music's embeddable web player widget for in-browser user authorization and full song playback
-- Contributed extensively to the creation of MusicKit JS, a public-facing JavaScript SDK for embedding Apple Music players into web applications
+- Sole developer for student awards database system for the Financial Aid Office using MS Access, VBA, MySQL and Excel
+- Automated generating awards information for college website by creating SQL driven template in VBA, accelerating workflow for clerical team by 100+ awards per semester
+- Created GUI using MS Access Forms and MySQL that allows for viewing award information, making reports and generating analytics
