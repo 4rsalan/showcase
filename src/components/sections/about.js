@@ -168,14 +168,13 @@ const About = () => {
             <p>
               But it sparked something in me. When it came time to go to College — programming just
               felt right. Years later, that drive to create stays strong and I try to bring that
-              energy into honing my craft to be the{' '}
+              energy into honing my craft{' '}
               <a
                 target="_blank"
                 href="https://www.youtube.com/watch?v=LpUr0KrSjHE"
                 rel="noreferrer">
-                <s> very best, like no one ever was</s>
-              </a>{' '}
-              best Engineer I can!
+                to be the very best, like no one ever was.
+              </a>
             </p>
 
             <p>Here are a few technologies I’ve been working with recently:</p>

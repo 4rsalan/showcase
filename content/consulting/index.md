@@ -15,7 +15,7 @@ tech:
   - NestJS
 ---
 
-- Developed and styled interactive web applications for Apple Music using Ember and SCSS
-- Built and shipped the Apple Music Extension for Facebook Messenger leveraging third-party and internal API integrations
-- Architected and implemented the user interface of Apple Music's embeddable web player widget for in-browser user authorization and full song playback
-- Contributed extensively to the creation of MusicKit JS, a public-facing JavaScript SDK for embedding Apple Music players into web applications
+- Produced high quality production grade code for a diverse set of clients including Fairstone, AT&T, CPKC Rail and more
+- Architected event driven services leveraging the AWS suite to optimize load times and reducing user dropoff for Fairstone's loan financing applications
+- Designed UI components and implemented Luxury Theming for overhaul of RE/MAX America's web application
+- Contributed extensively to internal React Native and Generative AI accelerators; improving project kickoffs on new engagements
