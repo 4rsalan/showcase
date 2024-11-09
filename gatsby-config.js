@@ -4,10 +4,11 @@ module.exports = {
   siteMetadata: {
     title: 'Arsalan',
     description: 'Portfolio Website',
-    siteUrl: 'https://brittanychiang.com', // No trailing slash allowed!
+    siteUrl: 'https://arsalanfarooqui.com', // No trailing slash allowed!
     image: '/og.png', // Path to your image you placed in the 'static' folder
-    twitterUsername: '@bchiang7',
+    twitterUsername: '@Nintendo',
   },
+  pathPrefix: '/showcase',
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
@@ -19,8 +20,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'Brittany Chiang',
-        short_name: 'Brittany Chiang',
+        name: 'Arsalan Farooqui',
+        short_name: 'Arsalan Farooqui',
         start_url: '/',
         background_color: config.colors.background,
         theme_color: config.colors.green,
